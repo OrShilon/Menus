@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    class Program
+    public interface IExecuteAction
     {
-        static void Main(string[] args)
-        {
-            MainMenu menu
-        }
+        void Execute();
     }
 }
