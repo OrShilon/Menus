@@ -14,14 +14,13 @@ namespace Ex04.Menus.Interfaces
         public MainMenu(string i_MenuTitle)
         {
             m_ListOfItems = new SubMenu(i_MenuTitle);
-            m_ListOfItems.MenuNodes = new List<MenuNode>();
         }
 
-        public string ExitMessage
+        public SubMenu ListOfItems
         {
             get
             {
-                return m_ExitMessage;
+                return m_ListOfItems;
             }
         }
     }

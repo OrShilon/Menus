@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public abstract class MenuNode 
+    public abstract class MenuNode
     {
         private string m_Title;
-        private Menu m_ParentMenu = null;
+        private SubMenu m_ParentMenu = null;
 
         public abstract void DoWhenClicked();
 
@@ -27,7 +27,7 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public Menu ParentMenu
+        public SubMenu ParentMenu
         {
             get
             {

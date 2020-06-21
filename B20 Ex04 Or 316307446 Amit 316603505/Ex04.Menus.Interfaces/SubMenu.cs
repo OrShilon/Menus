@@ -9,10 +9,17 @@ namespace Ex04.Menus.Interfaces
 {
     public class SubMenu : MenuNode
     {
+        private SubMenu m_ParentMenu = null;
+        private List<MenuNode> m_MenuNodes = new List<MenuNode>();
 
-        private const string m_ExitMessage = "Exit";
-        private const string m_BackMessage = "Back";
-        private List<MenuNode> m_MenuNodes;
+
+        public List<MenuNode> MenuNodes
+        {
+            get
+            {
+                return m_MenuNodes;
+            }
+        }
 
         public SubMenu(string i_MenuTitle)
         {
@@ -25,6 +32,7 @@ namespace Ex04.Menus.Interfaces
         public void AddMenuNode(MenuNode i_NodeToAdd)
         {
             m_MenuNodes.Add(i_NodeToAdd);
+            i_NodeToAdd.ParentMenu = this;
         }
 
         // Node can be subMenu or ItemMenu
@@ -41,17 +49,6 @@ namespace Ex04.Menus.Interfaces
 
         public override void DoWhenClicked()
         {
-            int index = 1;
-
-            Console.WriteLine(Title + Environment.NewLine);
-            foreach(MenuNode item in m_MenuNodes)
-            {
-                Console.WriteLine("{0}. {1}", index, item);
-                index++;
-            }
-
-            Console.WriteLine("0. {0}", ParentMenu == null ? m_ExitMessage : m_BackMessage);
-            Console.WriteLine("Please Choose the coresponding number to the button you want to choose");
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Ex04.Menus.Interfaces
 {
     public abstract class Menu
     {
-        private List<MenuNode> m_MenuNodes;
-        private Menu m_ParentMenu = null;
+        /*private List<MenuNode> m_MenuNodes;
+        private SubMenu m_ParentMenu = null;
         private string m_MenuTitle;
 
         public List<MenuNode> MenuNodes
@@ -38,6 +38,19 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
+        public SubMenu ParentMenu
+        {
+            get
+            {
+                return m_ParentMenu;
+            }
+
+            set
+            {
+                m_ParentMenu = value;
+            }
+        }
+
         // Node can be subMenu or ItemMenu
         public void AddMenuNode(MenuNode i_NodeToAdd)
         {
@@ -55,5 +68,7 @@ namespace Ex04.Menus.Interfaces
                 }
             }
         }
+        */
+
     }
 }

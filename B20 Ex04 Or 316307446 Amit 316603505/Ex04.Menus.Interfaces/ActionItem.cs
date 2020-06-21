@@ -10,15 +10,18 @@ namespace Ex04.Menus.Interfaces
     {
         private IExecuteAction m_ActionToPerform;
 
-        public ActionItem(IExecuteAction i_ActionToPerform)
+        public ActionItem(string i_Title,IExecuteAction i_ActionToPerform)
         {
+            Title = i_Title;
             m_ActionToPerform = i_ActionToPerform;
         }
 
-        public override void DoWhenmClicked()
+        public override void DoWhenClicked()
         {
             Console.Clear();
             m_ActionToPerform.Execute();
+            UserInteraction.PressAnyKetToContinue();
+            UserInteraction.DisplayMenuAndCheckUserInput(ParentMenu);
         }
     }
 }
