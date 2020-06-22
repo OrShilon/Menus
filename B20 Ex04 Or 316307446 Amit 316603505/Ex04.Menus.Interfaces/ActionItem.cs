@@ -10,7 +10,7 @@ namespace Ex04.Menus.Interfaces
     {
         private IExecuteAction m_ActionToPerform;
 
-        public ActionItem(string i_Title,IExecuteAction i_ActionToPerform)
+        public ActionItem(string i_Title, IExecuteAction i_ActionToPerform)
         {
             Title = i_Title;
             m_ActionToPerform = i_ActionToPerform;
@@ -21,7 +21,6 @@ namespace Ex04.Menus.Interfaces
             Console.Clear();
             m_ActionToPerform.Execute();
             UserInteraction.PressAnyKetToContinue();
-            UserInteraction.DisplayMenuAndCheckUserInput(ParentMenu);
         }
     }
 }

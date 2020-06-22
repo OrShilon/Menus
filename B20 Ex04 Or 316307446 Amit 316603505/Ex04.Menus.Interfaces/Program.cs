@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,27 +21,13 @@ namespace Ex04.Menus.Interfaces
             mainMenu.ListOfItems.AddMenuNode(new SubMenu("Third SubMenu"));
             mainMenu.ListOfItems.AddMenuNode(new ActionItem("Second action", temp));
 
-         
-
-            int i = UserInteraction.DisplayMenuAndCheckUserInput(mainMenu.ListOfItems);
-            SubMenu chosenSub = mainMenu.ListOfItems.MenuNodes[i] as SubMenu;
+            SubMenu chosenSub = mainMenu.ListOfItems.MenuNodes[1] as SubMenu;
             chosenSub.AddMenuNode(new SubMenu("New first subMenu!!!"));
             chosenSub.AddMenuNode(new SubMenu("New Second subMenu!!!"));
-            chosenSub.AddMenuNode(new SubMenu("New Thied subMenu!!!"));
+            chosenSub.AddMenuNode(new ActionItem("New First Action Item!!!", temp));
             chosenSub.AddMenuNode(new SubMenu("New Forth subMenu!!!"));
 
-            ActionItem chosenItem;
-
-            if(chosenSub != null)
-            {
-                UserInteraction.DisplayMenuAndCheckUserInput(chosenSub);
-            }
-            else
-            {
-                chosenItem = mainMenu.ListOfItems.MenuNodes[i] as ActionItem;
-                chosenItem.DoWhenClicked();
-            }
-            Console.ReadLine();
+            mainMenu.Show();
         }
     }
 
