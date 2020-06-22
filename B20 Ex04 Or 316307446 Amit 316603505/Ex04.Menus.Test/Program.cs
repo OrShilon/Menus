@@ -5,7 +5,6 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Ex04.Menus;
-using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
@@ -13,18 +12,51 @@ namespace Ex04.Menus.Test
     {
         static void Main(string[] args)
         {
-            MainMenu interfaceMainMenu = new Interfaces.MainMenu("Main Menu Title!");
-            SubMenu firstSubMenu = new SubMenu("Version and Capitals");
-            SubMenu secondSubMenu = new SubMenu("Show Date/Time");
+            BuildAndRunInterface();
+            BuildAndRunDelegate();
+        }
+
+        private static void BuildAndRunInterface()
+        {
+            Interfaces.MainMenu interfaceMainMenu = new Interfaces.MainMenu("Interface Main Menu Title!");
+            Interfaces.SubMenu firstSubMenu = new Interfaces.SubMenu("Version and Capitals");
+            Interfaces.SubMenu secondSubMenu = new Interfaces.SubMenu("Show Date/Time");
 
             InterfaceMethods.CountCapitals countCapitalsInterface = new InterfaceMethods.CountCapitals();
-            ActionItem countCapitals = new ActionItem("Count Capitals", countCapitalsInterface);
+            Interfaces.ActionNode countCapitals = new Interfaces.ActionNode("Count Capitals", countCapitalsInterface);
             InterfaceMethods.ShowVersion showVersionInterface = new InterfaceMethods.ShowVersion();
-            ActionItem showVersion = new ActionItem("Show Version", showVersionInterface);
+            Interfaces.ActionNode showVersion = new Interfaces.ActionNode("Show Version", showVersionInterface);
             InterfaceMethods.ShowTime showTimeInterface = new InterfaceMethods.ShowTime();
-            ActionItem showTime = new ActionItem("Show time", showTimeInterface);
+            Interfaces.ActionNode showTime = new Interfaces.ActionNode("Show time", showTimeInterface);
             InterfaceMethods.ShowDate showDateInterface = new InterfaceMethods.ShowDate();
-            ActionItem showDate = new ActionItem("Show Date", showDateInterface);
+            Interfaces.ActionNode showDate = new Interfaces.ActionNode("Show Date", showDateInterface);
+
+            //build main menu
+            interfaceMainMenu.ListOfItems.AddMenuNode(firstSubMenu);
+            interfaceMainMenu.ListOfItems.AddMenuNode(secondSubMenu);
+
+            //build version and capitals
+            firstSubMenu.AddMenuNode(countCapitals);
+            firstSubMenu.AddMenuNode(showVersion);
+
+            //build show and date
+            secondSubMenu.AddMenuNode(showTime);
+            secondSubMenu.AddMenuNode(showDate);
+
+            interfaceMainMenu.Show();
+        }
+
+        private static void BuildAndRunDelegate()
+        {
+            Delegates.MainMenu interfaceMainMenu = new Delegates.MainMenu("Delegate Main Menu Title!");
+            Delegates.SubMenu firstSubMenu = new Delegates.SubMenu("Version and Capitals");
+            Delegates.SubMenu secondSubMenu = new Delegates.SubMenu("Show Date/Time");
+
+            //InterfaceMethods.CountCapitals countCapitalsInterface = new InterfaceMethods.CountCapitals();
+            Delegates.ActionNode countCapitals = new Delegates.ActionNode("Count Capitals", DelegateMethods.CountCapitals);
+            Delegates.ActionNode showVersion = new Delegates.ActionNode("Show Version", DelegateMethods.ShowVersion);
+            Delegates.ActionNode showTime = new Delegates.ActionNode("Show time", DelegateMethods.ShowTime);
+            Delegates.ActionNode showDate = new Delegates.ActionNode("Show Date", DelegateMethods.ShowDate);
 
             //build main menu
             interfaceMainMenu.ListOfItems.AddMenuNode(firstSubMenu);

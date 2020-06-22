@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class ActionItem : MenuNode
+    public class ActionNode : MenuNode
     {
         private IExecuteAction m_ActionToPerform;
 
-        public ActionItem(string i_Title, IExecuteAction i_ActionToPerform)
+        public ActionNode(string i_Title, IExecuteAction i_ActionToPerform)
         {
             Title = i_Title;
             m_ActionToPerform = i_ActionToPerform;
