@@ -22,14 +22,10 @@ namespace Ex04.Menus.Test
             Interfaces.SubMenu firstSubMenu = new Interfaces.SubMenu("Version and Capitals");
             Interfaces.SubMenu secondSubMenu = new Interfaces.SubMenu("Show Date/Time");
 
-            InterfaceMethods.CountCapitals countCapitalsInterface = new InterfaceMethods.CountCapitals();
-            Interfaces.ActionNode countCapitals = new Interfaces.ActionNode("Count Capitals", countCapitalsInterface);
-            InterfaceMethods.ShowVersion showVersionInterface = new InterfaceMethods.ShowVersion();
-            Interfaces.ActionNode showVersion = new Interfaces.ActionNode("Show Version", showVersionInterface);
-            InterfaceMethods.ShowTime showTimeInterface = new InterfaceMethods.ShowTime();
-            Interfaces.ActionNode showTime = new Interfaces.ActionNode("Show time", showTimeInterface);
-            InterfaceMethods.ShowDate showDateInterface = new InterfaceMethods.ShowDate();
-            Interfaces.ActionNode showDate = new Interfaces.ActionNode("Show Date", showDateInterface);
+            Interfaces.ActionNode countCapitals = new Interfaces.ActionNode("Count Capitals", new InterfaceMethods.CountCapitals());
+            Interfaces.ActionNode showVersion = new Interfaces.ActionNode("Show Version", new InterfaceMethods.ShowVersion());
+            Interfaces.ActionNode showTime = new Interfaces.ActionNode("Show time", new InterfaceMethods.ShowTime());
+            Interfaces.ActionNode showDate = new Interfaces.ActionNode("Show Date", new InterfaceMethods.ShowDate());
 
             //build main menu
             interfaceMainMenu.ListOfItems.AddMenuNode(firstSubMenu);
