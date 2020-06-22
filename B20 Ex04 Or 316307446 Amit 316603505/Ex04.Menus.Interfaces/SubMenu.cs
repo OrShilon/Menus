@@ -9,8 +9,14 @@ namespace Ex04.Menus.Interfaces
 {
     public class SubMenu : MenuNode
     {
-        private SubMenu m_ParentMenu = null;
-        private List<MenuNode> m_MenuNodes = new List<MenuNode>();
+        private List<MenuNode> m_MenuNodes;
+
+
+        public SubMenu(string i_MenuTitle)
+        {
+            Title = i_MenuTitle;
+            m_MenuNodes = new List<MenuNode>();
+        }
 
 
         public List<MenuNode> MenuNodes
@@ -20,13 +26,6 @@ namespace Ex04.Menus.Interfaces
                 return m_MenuNodes;
             }
         }
-
-        public SubMenu(string i_MenuTitle)
-        {
-            Title = i_MenuTitle;
-            m_MenuNodes = new List<MenuNode>();
-        }
-
 
         // Node can be subMenu or ItemMenu
         public void AddMenuNode(MenuNode i_NodeToAdd)
@@ -49,6 +48,7 @@ namespace Ex04.Menus.Interfaces
 
         public override void DoWhenClicked()
         {
+            UserInteraction.Show(this);
         }
     }
 }
