@@ -44,7 +44,7 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public override void DoWhenClicked()
+        public override void OnClick()
         {
             UserInteraction.Show(this);
         }

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Delegates
 {
-    public delegate void ActionToPerform();
+    public delegate void ActionToPerformHandler();
 
     public class ActionNode : MenuNode
     {
-        public event ActionToPerform delegateAction;
+        public event ActionToPerformHandler ActionClicked;
 
-        public ActionNode(string i_Title, ActionToPerform i_DelegateAction)
+        public ActionNode(string i_Title, ActionToPerformHandler i_ActionClicked)
         {
             Title = i_Title;
-            delegateAction += i_DelegateAction;
+            ActionClicked += i_ActionClicked;
         }
 
-        public override void DoWhenClicked()
+        public override void OnClick()
         {
             Console.Clear();
-            if(delegateAction != null)
+            if(ActionClicked != null)
             {
-                delegateAction.Invoke();
+                ActionClicked.Invoke();
             }
 
             UserInteraction.PressAnyKetToContinue();

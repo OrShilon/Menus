@@ -11,7 +11,7 @@ namespace Ex04.Menus.Interfaces
         private string m_Title;
         private SubMenu m_ParentMenu = null;
 
-        public abstract void DoWhenClicked();
+        public abstract void OnClick();
 
         public string Title
         {

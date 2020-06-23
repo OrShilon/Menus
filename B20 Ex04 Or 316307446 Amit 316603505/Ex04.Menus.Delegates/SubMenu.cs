@@ -43,7 +43,7 @@ namespace Ex04.Menus.Delegates
             }
         }
 
-        public override void DoWhenClicked()
+        public override void OnClick()
         {
             UserInteraction.Show(this);
         }

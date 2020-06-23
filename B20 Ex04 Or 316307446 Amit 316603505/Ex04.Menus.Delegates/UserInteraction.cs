@@ -59,7 +59,7 @@ namespace Ex04.Menus.Delegates
 
                 if (!userChoice.Equals(k_ExitOrBack))
                 {
-                    i_Menu.MenuNodes[userChoice - k_MenuOffset].DoWhenClicked();
+                    i_Menu.MenuNodes[userChoice - k_MenuOffset].OnClick();
                 }
             }
         }

@@ -16,7 +16,7 @@ namespace Ex04.Menus.Interfaces
             m_ActionToPerform = i_ActionToPerform;
         }
 
-        public override void DoWhenClicked()
+        public override void OnClick()
         {
             Console.Clear();
             m_ActionToPerform.Execute();
