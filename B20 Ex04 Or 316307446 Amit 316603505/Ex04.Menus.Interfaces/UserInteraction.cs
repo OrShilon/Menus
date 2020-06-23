@@ -12,7 +12,7 @@ namespace Ex04.Menus.Interfaces
         private const string m_ExitMessage = "Exit";
         private const string m_BackMessage = "Back";
 
-        private static void PrintMenu(SubMenu i_Menu)
+        private static void printMenu(SubMenu i_Menu)
         {
             int index = 1;
 
@@ -28,18 +28,18 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("Please Choose the coresponding number to the button you want to choose");
         }
 
-        public static int Display(SubMenu i_Menu)
+        private static int printManager(SubMenu i_Menu)
         {
             string userInput;
             int validInput;
 
-            PrintMenu(i_Menu);
+            printMenu(i_Menu);
             userInput = Console.ReadLine();
             while(!isValidMenuOption(userInput, i_Menu.MenuNodes.Count, out validInput))
             {
                 Console.WriteLine("Invalid Input. Return to menu options.");
                 Thread.Sleep(2000);
-                PrintMenu(i_Menu);
+                printMenu(i_Menu);
                 userInput = Console.ReadLine();
             }
 
@@ -65,7 +65,7 @@ namespace Ex04.Menus.Interfaces
             // need to change 0 to const
             while (!userChoice.Equals(0))
             {
-                userChoice = UserInteraction.Display(i_Menu);
+                userChoice = UserInteraction.printManager(i_Menu);
 
                 // need to change 0 to const
                 if (!userChoice.Equals(0))

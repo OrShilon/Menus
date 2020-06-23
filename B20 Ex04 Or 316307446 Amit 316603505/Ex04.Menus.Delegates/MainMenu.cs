@@ -8,24 +8,24 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
-        private SubMenu m_ListOfItems;
+        private SubMenu m_ListOfMenuNodes;
 
         public MainMenu(string i_MenuTitle)
         {
-            m_ListOfItems = new SubMenu(i_MenuTitle);
+            m_ListOfMenuNodes = new SubMenu(i_MenuTitle);
         }
 
-        public SubMenu ListOfItems
+        public SubMenu ListOfMenuNodes
         {
             get
             {
-                return m_ListOfItems;
+                return m_ListOfMenuNodes;
             }
         }
 
         public void Show()
         {
-            UserInteraction.Show(m_ListOfItems);
+            UserInteraction.Show(m_ListOfMenuNodes);
         }
     }
 }

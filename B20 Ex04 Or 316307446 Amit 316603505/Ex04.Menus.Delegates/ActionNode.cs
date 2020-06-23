@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Ex04.Menus.Delegates
 {
 
-    public delegate void ActionToDo();
+    public delegate void ActionToPerform();
 
     public class ActionNode : MenuNode
     {
-        public event ActionToDo delegateAction;
+        public event ActionToPerform delegateAction;
 
-        public ActionNode(string i_Title, ActionToDo i_delegateAction)
+        public ActionNode(string i_Title, ActionToPerform i_delegateAction)
         {
             Title = i_Title;
             delegateAction += i_delegateAction;
