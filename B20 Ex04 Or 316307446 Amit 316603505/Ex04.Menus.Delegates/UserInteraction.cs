@@ -9,8 +9,10 @@ namespace Ex04.Menus.Delegates
 {
     public static class UserInteraction
     {
-        private const string m_ExitMessage = "Exit";
-        private const string m_BackMessage = "Back";
+        private const string k_ExitMessage = "Exit";
+        private const string k_BackMessage = "Back";
+        private const int k_ExitOrBack = 0;
+        private const int k_MenuOffset = 1;
 
         private static void PrintMenu(SubMenu i_Menu)
         {
@@ -24,7 +26,7 @@ namespace Ex04.Menus.Delegates
                 index++;
             }
 
-            Console.WriteLine("0. {0}", i_Menu.ParentMenu == null ? m_ExitMessage : m_BackMessage);
+            Console.WriteLine("0. {0}", i_Menu.ParentMenu == null ? k_ExitMessage : k_BackMessage);
             Console.WriteLine("Please Choose the coresponding number to the button you want to choose");
         }
 
@@ -50,16 +52,13 @@ namespace Ex04.Menus.Delegates
         {
             int userChoice = -1;
 
-            // need to change 0 to const
-            while (!userChoice.Equals(0))
+            while (!userChoice.Equals(k_ExitOrBack))
             {
                 userChoice = UserInteraction.Display(i_Menu);
 
-                // need to change 0 to const
-                if (!userChoice.Equals(0))
+                if (!userChoice.Equals(k_ExitOrBack))
                 {
-                    //need to change 1 to const
-                    i_Menu.MenuNodes[userChoice - 1].DoWhenClicked();
+                    i_Menu.MenuNodes[userChoice - k_MenuOffset].DoWhenClicked();
                 }
             }
         }
@@ -67,7 +66,7 @@ namespace Ex04.Menus.Delegates
 
         private static bool isValidMenuOption(string i_UserInput, int i_MenuLength, out int o_ValidInput)
         {
-            return int.TryParse(i_UserInput, out o_ValidInput) && o_ValidInput >= 0 && o_ValidInput <= i_MenuLength; //need to change 0 to const
+            return int.TryParse(i_UserInput, out o_ValidInput) && o_ValidInput >= k_ExitOrBack && o_ValidInput <= i_MenuLength;
         }
 
         public static void PressAnyKetToContinue()
