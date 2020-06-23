@@ -13,7 +13,6 @@ namespace Ex04.Menus.Interfaces
 
         public abstract void DoWhenClicked();
 
-
         public string Title
         {
             get

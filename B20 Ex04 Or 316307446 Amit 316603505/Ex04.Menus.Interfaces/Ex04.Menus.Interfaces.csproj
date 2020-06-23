@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="ActionNode.cs" />
     <Compile Include="IExecuteAction.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

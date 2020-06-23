@@ -11,6 +11,7 @@ namespace Ex04.Menus.Delegates
     {
         private const string k_ExitMessage = "Exit";
         private const string k_BackMessage = "Back";
+        private const string k_BackToPreviousMenuMessage = "to go back to the previous menu";
         private const int k_ExitOrBack = 0;
         private const int k_MenuOffset = 1;
 
@@ -27,7 +28,7 @@ namespace Ex04.Menus.Delegates
             }
 
             Console.WriteLine("0. {0}", i_Menu.ParentMenu == null ? k_ExitMessage : k_BackMessage);
-            Console.WriteLine("Please Choose the coresponding number to the button you want to choose");
+            Console.WriteLine("Please Choose the appropriate menu option, or 0 to {0}.", i_Menu.ParentMenu == null ? k_ExitMessage : k_BackToPreviousMenuMessage);
         }
 
         private static int printManager(SubMenu i_Menu)

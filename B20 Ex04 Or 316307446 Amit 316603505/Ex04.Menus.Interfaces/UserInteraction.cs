@@ -9,8 +9,9 @@ namespace Ex04.Menus.Interfaces
 {
     public static class UserInteraction
     {
-        private const string m_ExitMessage = "Exit";
-        private const string m_BackMessage = "Back";
+        private const string k_ExitMessage = "Exit";
+        private const string k_BackMessage = "Back";
+        private const string k_BackToPreviousMenuMessage = "to go back to the previous menu";
         private const int k_ExitOrBack = 0;
         private const int k_MenuOffset = 1;
 
@@ -26,8 +27,8 @@ namespace Ex04.Menus.Interfaces
                 index++;
             }
 
-            Console.WriteLine("0. {0}", i_Menu.ParentMenu == null ? m_ExitMessage : m_BackMessage);
-            Console.WriteLine("Please Choose the coresponding number to the button you want to choose");
+            Console.WriteLine("0. {0}", i_Menu.ParentMenu == null ? k_ExitMessage : k_BackMessage);
+            Console.WriteLine("Please Choose the appropriate menu option, or 0 to {0}.", i_Menu.ParentMenu == null ? k_ExitMessage : k_BackToPreviousMenuMessage);
         }
 
         private static int printManager(SubMenu i_Menu)
@@ -44,18 +45,6 @@ namespace Ex04.Menus.Interfaces
                 printMenu(i_Menu);
                 userInput = Console.ReadLine();
             }
-
-            //if(validInput.Equals(0))
-            //{
-            //    if(i_Menu.ParentMenu != null)
-            //    {
-            //       int i = Show(i_Menu.ParentMenu);
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
 
             return validInput;
         }
