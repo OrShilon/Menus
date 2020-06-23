@@ -8,8 +8,12 @@ namespace Ex04.Menus.Test
 {
     class DelegateMethods
     {
+        private const char k_FirstCapitalLetter = 'A';
+        private const char k_LastCapitalLetter = 'Z';
+
         public static void CountCapitals()
         {
+
             string userSentence;
             int numOfCapitals = 0;
 
@@ -17,8 +21,7 @@ namespace Ex04.Menus.Test
             userSentence = Console.ReadLine();
             for (int i = 0; i < userSentence.Length; i++)
             {
-                //need to change 'A' and 'Z' to const
-                if (userSentence[i] >= 'A' && userSentence[i] <= 'Z')
+                if (userSentence[i] >= k_FirstCapitalLetter && userSentence[i] <= k_LastCapitalLetter)
                 {
                     numOfCapitals++;
                 }
