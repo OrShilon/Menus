@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ex04.Menus.Delegates
@@ -34,24 +35,13 @@ namespace Ex04.Menus.Delegates
 
             PrintMenu(i_Menu);
             userInput = Console.ReadLine();
-            while (!isValidMenuOption(userInput, out validInput))
+            while (!isValidMenuOption(userInput, i_Menu.MenuNodes.Count, out validInput))
             {
-                Console.WriteLine("Invalid Input.");
+                Console.WriteLine("Invalid Input. Return to menu options.");
+                Thread.Sleep(2000);
                 PrintMenu(i_Menu);
                 userInput = Console.ReadLine();
             }
-
-            //if(validInput.Equals(0))
-            //{
-            //    if(i_Menu.ParentMenu != null)
-            //    {
-            //       int i = Show(i_Menu.ParentMenu);
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
 
             return validInput;
         }
@@ -74,9 +64,10 @@ namespace Ex04.Menus.Delegates
             }
         }
 
-        private static bool isValidMenuOption(string i_UserInput, out int o_ValidInput)
+
+        private static bool isValidMenuOption(string i_UserInput, int i_MenuLength, out int o_ValidInput)
         {
-            return int.TryParse(i_UserInput, out o_ValidInput) && o_ValidInput >= 0; //need to change 0 to const
+            return int.TryParse(i_UserInput, out o_ValidInput) && o_ValidInput >= 0 && o_ValidInput <= i_MenuLength; //need to change 0 to const
         }
 
         public static void PressAnyKetToContinue()
