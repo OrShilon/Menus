@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegateMethods.cs" />
-    <Compile Include="InterfaceMethods.cs" />
+    <Compile Include="BuildAndRunDelegate.cs" />
+    <Compile Include="BuildAndRunInterface.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

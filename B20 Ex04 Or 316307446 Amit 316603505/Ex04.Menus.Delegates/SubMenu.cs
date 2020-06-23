@@ -8,39 +8,37 @@ namespace Ex04.Menus.Delegates
 {
     public class SubMenu : MenuNode
     {
-        private List<MenuNode> m_MenuNodes;
-
+        private readonly List<MenuNode> r_MenuNodes;
 
         public SubMenu(string i_MenuTitle)
         {
             Title = i_MenuTitle;
-            m_MenuNodes = new List<MenuNode>();
+            r_MenuNodes = new List<MenuNode>();
         }
-
 
         public List<MenuNode> MenuNodes
         {
             get
             {
-                return m_MenuNodes;
+                return r_MenuNodes;
             }
         }
 
         // Node can be subMenu or ItemMenu
         public void AddMenuNode(MenuNode i_NodeToAdd)
         {
-            m_MenuNodes.Add(i_NodeToAdd);
+            r_MenuNodes.Add(i_NodeToAdd);
             i_NodeToAdd.ParentMenu = this;
         }
 
         // Node can be subMenu or ItemMenu
         public void RemoveMenuNode(MenuNode i_NodeToAdd)
         {
-            if (m_MenuNodes != null)
+            if (r_MenuNodes != null)
             {
-                if (m_MenuNodes.Contains(i_NodeToAdd))
+                if (r_MenuNodes.Contains(i_NodeToAdd))
                 {
-                    m_MenuNodes.Add(i_NodeToAdd);
+                    r_MenuNodes.Add(i_NodeToAdd);
                 }
             }
         }

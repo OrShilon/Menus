@@ -7,7 +7,7 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
-    class InterfaceMethods
+    public class Methods
     {
          public class CountCapitals : IExecuteAction
         {
