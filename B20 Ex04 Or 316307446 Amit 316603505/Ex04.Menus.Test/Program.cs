@@ -28,8 +28,8 @@ namespace Ex04.Menus.Test
             Interfaces.ActionNode showDate = new Interfaces.ActionNode("Show Date", new InterfaceMethods.ShowDate());
 
             //build main menu
-            interfaceMainMenu.ListOfItems.AddMenuNode(firstSubMenu);
-            interfaceMainMenu.ListOfItems.AddMenuNode(secondSubMenu);
+            interfaceMainMenu.ListOfMenuNodes.AddMenuNode(firstSubMenu);
+            interfaceMainMenu.ListOfMenuNodes.AddMenuNode(secondSubMenu);
 
             //build version and capitals
             firstSubMenu.AddMenuNode(countCapitals);
@@ -55,8 +55,8 @@ namespace Ex04.Menus.Test
             Delegates.ActionNode showDate = new Delegates.ActionNode("Show Date", DelegateMethods.ShowDate);
 
             //build main menu
-            interfaceMainMenu.ListOfItems.AddMenuNode(firstSubMenu);
-            interfaceMainMenu.ListOfItems.AddMenuNode(secondSubMenu);
+            interfaceMainMenu.ListOfMenuNodes.AddMenuNode(firstSubMenu);
+            interfaceMainMenu.ListOfMenuNodes.AddMenuNode(secondSubMenu);
 
             //build version and capitals
             firstSubMenu.AddMenuNode(countCapitals);
